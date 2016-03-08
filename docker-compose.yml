@@ -1,3 +1,5 @@
+redis:
+  image: redis:latest
 elasticsearch:
   image: elasticsearch:latest
   command: elasticsearch -Des.network.host=0.0.0.0
@@ -13,6 +15,7 @@ logstash:
     - "5000:5000"
   links:
     - elasticsearch
+    - redis
 kibana:
   build: kibana/
   volumes:
